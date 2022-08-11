@@ -7,36 +7,27 @@ public class Main {
     public static void main(String[] args) {
 
         SimpleBotService bot = new SimpleBotService();
+        ConsoleReader reader = new ConsoleReader();
         while (true) {
             try {
-                Scanner scanner = new Scanner(System.in);
                 bot.greet("Aid", "2020");
+                bot.remindName(reader.scanString());
 
-                String name = scanner.nextLine();
-                bot.remindName(name);
-
-                System.out.println("Let me guess your age." + System.lineSeparator()
+                System.out.println("Let me guess your age." + bot.TAB
                         + "Enter remainders of dividing your age by 3, 5 and 7.");
-                int firstRemainder = scanner.nextInt();
-                int secondRemainder = scanner.nextInt();
-                int thirdRemainder = scanner.nextInt();
-                bot.guessAge(firstRemainder, secondRemainder, thirdRemainder);
+                bot.guessAge(reader.scanInt(), reader.scanInt(), reader.scanInt());
 
                 System.out.println("Now I will prove to you that I can count to any number you want.");
-                int numberForCount = scanner.nextInt();
-                bot.count(numberForCount);
+                bot.count(reader.scanInt());
 
-                System.out.println("Let's test your programming knowledge." + System.lineSeparator()
+                System.out.println("Let's test your programming knowledge." + bot.TAB
                         + "Why do we use methods?");
 
-                System.out.println("1. To repeat a statement multiple times.");
-                System.out.println("2. To decompose a program into several small subroutines.");
-                System.out.println("3. To determine the execution time of a program.");
-                System.out.println("4. To interrupt the execution of a program.");
-
-                int numberForTest = scanner.nextInt();
-                bot.test(numberForTest);
-
+                System.out.println("1. To repeat a statement multiple times."+ bot.TAB
+                        + "2. To decompose a program into several small subroutines."+ bot.TAB
+                        + "3. To determine the execution time of a program." + bot.TAB
+                        + "4. To interrupt the execution of a program.");
+                bot.test(reader.scanInt());
                 System.out.println("Congratulations, have a nice day!");
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
