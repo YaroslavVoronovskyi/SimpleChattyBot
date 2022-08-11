@@ -1,14 +1,11 @@
 package com.griddynamics.yvoronovskyi.simplechattybot;
 
-import java.util.Scanner;
-
 public class SimpleBotService {
-    public static final String TAB = System.lineSeparator();
+    public static final String LINE_SEPARATOR = System.lineSeparator();
 
-    ConsoleReader reader = new ConsoleReader();
     public void greet(String assistantName, String birthYear) {
-        System.out.println("Hello! My name is " + assistantName + "." + TAB
-                + "I was created in " + birthYear + "." + TAB
+        System.out.println("Hello! My name is " + assistantName + "." + LINE_SEPARATOR
+                + "I was created in " + birthYear + "." + LINE_SEPARATOR
                 + "Please, remind me your name.");
     }
 
@@ -28,11 +25,6 @@ public class SimpleBotService {
     }
 
     public void test(int number) {
-        if (number <= 0 | number >= 4 ) {
-            System.out.println("Please, try again, choose number from 1 to 4");
-        } else {
-            System.out.println("Answer correct! Congratulations!");
-        }
+        System.out.println("Answer correct! Congratulations!");
     }
 }
-
